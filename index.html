@@ -1,43 +1,174 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signature Generator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            width: 90%;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .form {
+            height: 40vh;
+        }
+
+        .form-row {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .message-block {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 80%;
+            margin: 0 auto;
+            font-family: Calibri, Helvetica, sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            line-height: 16px;
+            font-weight: 500;
+            color: #686868;
+        }
+    </style>
 </head>
 
 <body>
+        <h1>Email Signature Generator</h1>
 
-    <table border=0>
-        <tr>
-            <td><a href="https://www.newyorkredbulls.com/"><img height="110" alt="image" border="0" src="NYRB-Logo.png"></a></td>
-            <td style="padding-left: 15px;">
-                <table style="font-family: Calibri,Helvetica,sans-serif;font-size:14px;font-style:normal;line-height:16px;font-weight:400;color:#686868">
-                    <tr><td>
-                        <span style="font-size:18px;font-style:bold;font-weight:600;color:#141313;display:inline;">
-                        Hermano Crubellati
-                        </span>
-                    </td></tr>
-                    <tr><td><span style="font-size: 16px; font-style: bold; font-weight: 600;color: #DA1A32;display:inline;">
-                        Senior IT Manager
-                    </span></td></tr>
-                    <tr><td><span>600 Cape May St - Harrison, NJ 07029</span></td></tr>
-                    <tr><td><span>Red Bull Arena</span></td></tr>
-                    <tr><td><span>T: +1 (973) 313-4290 | M: +1 (973) 526-1005</span></td></tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td style="margin:auto;text-align: center;"><img width="110" alt="Red Runs Deep" border="0" src="RED RUNS DEEP.png"></td>
-            <td><img height="80" alt="logos entities" border="0" src="/signature/LogosGray.png"></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <a href="https://exgg.short.gy/ZUL4xR" target="_blank" rel="nofollow">
-                <img width="588" alt="banner" border="0" src="/signature/banner.png">
-            </a>
-            </td>
-        </tr>
-    </table>
+        <div class="form">
+
+            <div class="form-row">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" oninput="updateMessageName()">
+            </div>
+            <div class="form-row">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" oninput="updateMessageTitle()">
+            </div>
+            <div class="form-row">
+                <label for="phone">Phone number:</label>
+                <input type="tel" id="phone" name="phone" oninput="updateMessagePhone()">
+            </div>
+            <div class="form-row">
+                <label for="mobile">Mobile number:</label>
+                <input type="tel" id="mobile" name="mobile" oninput="updateMessageMobile()">
+            </div>
+            <div class="form-row">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" oninput="updateMessageAddress()">
+            </div>
+            <div class="form-row">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" oninput="updateMessageLocation()">
+            </div>
+        </div>
+
+        <div class="message-block" id="messageBlock">
+            <table border=0>
+                <tr>
+                    <td><a href="https://www.newyorkredbulls.com/"><img height="110" alt="image" border="0"
+                                src="NYRB-Logo.png"></a></td>
+                    <td style="padding-left: 15px;text-align: left;">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span id="text-name"
+                                        style="font-size:18px;font-style:bold;font-weight:600;color:#141313;display:inline;">
+                                        Firstname Lastname
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span id="text-title"
+                                        style="font-size: 16px; font-style: bold; font-weight: 600;color: #DA1A32;display:inline;">
+                                        Manager
+                                    </span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="text-address">600 Cape May St - Harrison, NJ 07029</span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="text-location">Red Bull Arena</span></td>
+                            </tr>
+                            <tr>
+                                <td><span id="text-phone">T: +1 (973) 313-4290 </span><span id="text-mobile">| M: +1
+                                        (973) 526-1005</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin:auto;text-align: center;"><img width="110" alt="Red Runs Deep" border="0"
+                            src="RED RUNS DEEP.png"></td>
+                    <td><img height="80" alt="logos entities" border="0" src="LogosGray.png"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="https://exgg.short.gy/ZUL4xR" target="_blank" rel="external" tag="signature"
+                            referrerpolicy="origin" style="text-decoration: none;">
+                            <img width="588" alt="banner" border="0" src="banner.png">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <button onclick="copyElementToClipboard('message-block')">Copy Content</button>
+
+
+    <script>
+
+        function copyElementToClipboard() {
+            window.getSelection().removeAllRanges();
+            let range = document.createRange();
+            let referenceNode = document.getElementsByTagName('table').item(0);
+
+            range.selectNode(referenceNode);
+
+            const selObj = window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('Content copied to clipboard!');
+        }
+        function updateMessageName() {
+            const name = document.getElementById('name').value;
+            document.getElementById("text-name").innerText = name
+        }
+        function updateMessageTitle() {
+            const title = document.getElementById('title').value;
+            document.getElementById("text-title").innerText = title
+        }
+        function updateMessagePhone() {
+            const title = document.getElementById('phone').value;
+            document.getElementById("text-phone").innerText = title
+        }
+        function updateMessageMobile() {
+            const phone = document.getElementById('mobile').value;
+            document.getElementById("text-mobile").innerText = phone
+        }
+        function updateMessageAddress() {
+            const title = document.getElementById('address').value;
+            document.getElementById("text-address").innerText = title
+        }
+        function updateMessageTitleLocation() {
+            const title = document.getElementById('location').value;
+            document.getElementById("text-location").innerText = title
+        }
+
+    </script>
 </body>
 
 </html>
